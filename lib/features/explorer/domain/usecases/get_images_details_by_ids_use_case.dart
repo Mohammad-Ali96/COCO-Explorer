@@ -1,7 +1,7 @@
 import 'package:coco_explorer/core/domain/entities/failures.dart';
 import 'package:coco_explorer/core/domain/usecases/usecase.dart';
 import 'package:coco_explorer/features/explorer/domain/entities/coco_image.dart';
-import 'package:coco_explorer/features/explorer/domain/repository/explorer_repository.dart';
+import 'package:coco_explorer/features/explorer/domain/repositories/explorer_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

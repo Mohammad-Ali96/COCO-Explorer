@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart' as _i13;
 import 'core/data/utils/configuration.dart' as _i3;
 import 'core/data/utils/network/network_info.dart' as _i12;
 import 'core/domain/utils/network/network_info.dart' as _i11;
-import 'core/presentation/blocs/auth/auth_bloc.dart' as _i24;
+import 'core/presentation/blocs/auth/auth_bloc.dart' as _i25;
 import 'features/auth/data/datasources/local/auth_local_datasource.dart'
     as _i14;
 import 'features/auth/data/datasources/remote/auth_remote_datasource.dart'
@@ -23,21 +23,23 @@ import 'features/auth/data/datasources/remote/auth_remote_datasource.dart'
 import 'features/auth/data/repositories/auth_repository_impl.dart' as _i17;
 import 'features/auth/domain/repositories/auth_repository.dart' as _i16;
 import 'features/auth/domain/usecases/get_first_time_logged_use_case.dart'
-    as _i18;
-import 'features/auth/domain/usecases/get_signed_in_user_use_case.dart' as _i19;
-import 'features/auth/domain/usecases/login_use_case.dart' as _i20;
-import 'features/auth/domain/usecases/logout_use_case.dart' as _i21;
+    as _i19;
+import 'features/auth/domain/usecases/get_signed_in_user_use_case.dart' as _i20;
+import 'features/auth/domain/usecases/login_use_case.dart' as _i21;
+import 'features/auth/domain/usecases/logout_use_case.dart' as _i22;
 import 'features/auth/domain/usecases/set_first_time_logged_use_case.dart'
-    as _i22;
-import 'features/auth/domain/usecases/subscribe_to_auth_status.dart' as _i23;
+    as _i23;
+import 'features/auth/domain/usecases/subscribe_to_auth_status.dart' as _i24;
 import 'features/explorer/data/datasources/remote/explorer_remote_datasource.dart'
     as _i5;
-import 'features/explorer/domain/repository/explorer_repository.dart' as _i7;
+import 'features/explorer/data/repositories/explorer_repository_impl.dart'
+    as _i18;
+import 'features/explorer/domain/repositories/explorer_repository.dart' as _i7;
 import 'features/explorer/domain/usecases/get_image_ids_by_category_ids_use_case.dart'
     as _i6;
 import 'features/explorer/domain/usecases/get_images_details_by_ids_use_case.dart'
     as _i8;
-import 'injectable_module.dart' as _i25;
+import 'injectable_module.dart' as _i26;
 
 const String _dev = 'dev';
 const String _staging = 'staging';
@@ -83,25 +85,28 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       get<_i11.NetworkInfo>(),
       get<_i10.Logger>(),
       get<_i3.Configuration>()));
-  gh.lazySingleton<_i18.GetFirstTimeLoggedUseCase>(
-      () => _i18.GetFirstTimeLoggedUseCase(get<_i16.AuthRepository>()));
-  gh.lazySingleton<_i19.GetSignedInUserUseCase>(
-      () => _i19.GetSignedInUserUseCase(get<_i16.AuthRepository>()));
-  gh.lazySingleton<_i20.LoginUseCase>(
-      () => _i20.LoginUseCase(get<_i16.AuthRepository>()));
-  gh.lazySingleton<_i21.LogoutUseCase>(
-      () => _i21.LogoutUseCase(repository: get<_i16.AuthRepository>()));
-  gh.lazySingleton<_i22.SetFirstTimeLoggedUseCase>(
-      () => _i22.SetFirstTimeLoggedUseCase(get<_i16.AuthRepository>()));
-  gh.lazySingleton<_i23.SubscribeToAuthStatusUseCase>(
-      () => _i23.SubscribeToAuthStatusUseCase(get<_i16.AuthRepository>()));
-  gh.factory<_i24.AuthBloc>(() => _i24.AuthBloc(
-      get<_i19.GetSignedInUserUseCase>(),
-      get<_i21.LogoutUseCase>(),
-      get<_i18.GetFirstTimeLoggedUseCase>(),
-      get<_i22.SetFirstTimeLoggedUseCase>(),
-      get<_i23.SubscribeToAuthStatusUseCase>()));
+  gh.lazySingleton<_i18.ExplorerRepositoryImpl>(() =>
+      _i18.ExplorerRepositoryImpl(get<dynamic>(), get<_i11.NetworkInfo>(),
+          get<_i10.Logger>(), get<_i3.Configuration>()));
+  gh.lazySingleton<_i19.GetFirstTimeLoggedUseCase>(
+      () => _i19.GetFirstTimeLoggedUseCase(get<_i16.AuthRepository>()));
+  gh.lazySingleton<_i20.GetSignedInUserUseCase>(
+      () => _i20.GetSignedInUserUseCase(get<_i16.AuthRepository>()));
+  gh.lazySingleton<_i21.LoginUseCase>(
+      () => _i21.LoginUseCase(get<_i16.AuthRepository>()));
+  gh.lazySingleton<_i22.LogoutUseCase>(
+      () => _i22.LogoutUseCase(repository: get<_i16.AuthRepository>()));
+  gh.lazySingleton<_i23.SetFirstTimeLoggedUseCase>(
+      () => _i23.SetFirstTimeLoggedUseCase(get<_i16.AuthRepository>()));
+  gh.lazySingleton<_i24.SubscribeToAuthStatusUseCase>(
+      () => _i24.SubscribeToAuthStatusUseCase(get<_i16.AuthRepository>()));
+  gh.factory<_i25.AuthBloc>(() => _i25.AuthBloc(
+      get<_i20.GetSignedInUserUseCase>(),
+      get<_i22.LogoutUseCase>(),
+      get<_i19.GetFirstTimeLoggedUseCase>(),
+      get<_i23.SetFirstTimeLoggedUseCase>(),
+      get<_i24.SubscribeToAuthStatusUseCase>()));
   return get;
 }
 
-class _$InjectableModule extends _i25.InjectableModule {}
+class _$InjectableModule extends _i26.InjectableModule {}
