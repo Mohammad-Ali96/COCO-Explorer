@@ -78,9 +78,6 @@ class BaseRepositoryImpl implements BaseRepository {
             final baseResponse =
                 BaseResponse.fromJson(responseData, (_) => null);
             message = baseResponse.message ?? '';
-            if (baseResponse.code != null) {
-              errorCode = _getErrorCodeFromCode(baseResponse.code!);
-            }
           } catch (e) {
             return left(ServerFailure(errorCode: errorCode, message: message));
           }
@@ -120,12 +117,4 @@ class BaseRepositoryImpl implements BaseRepository {
     }
   }
 
-  ServerErrorCode _getErrorCodeFromCode(String code) {
-    switch (int.parse(code)) {
-      case 1:
-        return ServerErrorCode.customError;
-      default:
-        return ServerErrorCode.serverError;
-    }
-  }
 }

@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 part 'auth_event.dart';
+
 part 'auth_state.dart';
 
 @injectable
@@ -21,13 +22,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SubscribeToAuthStatusUseCase subscribeToAuthStatusUseCase;
 
   AuthBloc(
-      this.getSignedInUser,
-      this.logoutUseCase,
-      this.getFirstTimeLogged,
-      this.setFirstTimeLogged,
-      this.subscribeToAuthStatusUseCase,
-      )
-      : super(AuthInitial()) {
+    this.getSignedInUser,
+    this.logoutUseCase,
+    this.getFirstTimeLogged,
+    this.setFirstTimeLogged,
+    this.subscribeToAuthStatusUseCase,
+  ) : super(AuthInitial()) {
     on<AuthSetFirstTimeLogged>(
       (event, emit) {
         setFirstTimeLogged(SetFirstTimeLoggedUseCaseParams(
@@ -44,10 +44,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }, (user) async {
           if (user != null) {
             emit(
-              Authenticated(
-                user: user,
-                // devicesPermissions: devicesPermissions,
-              ),
+              Authenticated(user: user),
             );
           } else {
             return result2.fold(
@@ -77,31 +74,31 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       },
     );
 
-    on<SubscribeToAuthStatus>((event, emit) async {
-      final result = await subscribeToAuthStatusUseCase.call(NoParams());
-      await result.fold(
-        (l) => null,
-        (authStatus) async {
-          await emit.onEach<User?>(
-            authStatus,
-            onData: (user) {
-              if (user == null) {
-                emit(Unauthenticated(false));
-              } else {
-                if (state is Authenticated) {
-                  emit(
-                    Authenticated(
-                      user: user,
-                    ),
-                  );
+    on<SubscribeToAuthStatus>(
+      (event, emit) async {
+        final result = await subscribeToAuthStatusUseCase.call(NoParams());
+        await result.fold(
+          (l) => null,
+          (authStatus) async {
+            await emit.onEach<User?>(
+              authStatus,
+              onData: (user) {
+                if (user == null) {
+                  emit(Unauthenticated(false));
                 } else {
-                  add(AuthLogin(user));
+                  if (state is Authenticated) {
+                    emit(
+                      Authenticated(user: user),
+                    );
+                  } else {
+                    add(AuthLogin(user));
+                  }
                 }
-              }
-            },
-          );
-        },
-      );
-    },);
+              },
+            );
+          },
+        );
+      },
+    );
   }
 }
