@@ -43,13 +43,14 @@ class _AppState extends State<App> {
                   SystemUiOverlayStyle.light);
               return MaterialApp.router(
                 debugShowCheckedModeBanner: false,
+                title: 'COCO Explorer',
                 localizationsDelegates: context.localizationDelegates,
                 supportedLocales: context.supportedLocales,
                 locale: context.locale,
                 theme: AppTheme(AppLightColorScheme()).getThemeData(context),
                 darkTheme:
                 AppTheme(AppDarkColorScheme()).getThemeData(context),
-                themeMode: ThemeMode.dark,
+                themeMode: ThemeMode.light,
                 builder: (context, widget) {
                   return MultiBlocListener(
                     listeners: [
