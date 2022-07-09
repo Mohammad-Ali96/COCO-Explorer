@@ -11,6 +11,7 @@ import 'package:coco_explorer/features/explorer/domain/repositories/Explorer_rep
 import 'package:coco_explorer/features/explorer/data/models/coco_image/coco_image_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+// ignore: depend_on_referenced_packages
 import 'package:logger/logger.dart';
 
 @LazySingleton(as: ExplorerRepository)
@@ -48,19 +49,21 @@ class ExplorerRepositoryImpl extends BaseRepositoryImpl
       List<int> imagesToBeFetched = [];
 
       if (page == 1) {
-        if (imagesIds.length >= 5) {
-          imagesToBeFetched = imagesIds.sublist(0, 5);
+        if (imagesIds.length >= 8) {
+          imagesToBeFetched = imagesIds.sublist(0, 8);
         } else {
           imagesToBeFetched = imagesIds;
         }
       } else {
-        if (imagesIds.length >= page * 5) {
-          imagesToBeFetched = imagesIds.sublist((page - 1) * 5, page * 5);
-        } else {
+        if (imagesIds.length >= page * 8) {
+          imagesToBeFetched = imagesIds.sublist((page - 1) * 8, page * 8);
+        } else if((page - 1) * 8 < imagesIds.length){
           imagesToBeFetched = imagesIds.sublist(
-            (page - 1) * 5,
+            (page - 1) * 8,
             imagesIds.length,
           );
+        }else{
+          return right([]);
         }
       }
       final response = await remote.getImagesDetailsByIds(
