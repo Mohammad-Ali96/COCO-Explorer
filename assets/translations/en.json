@@ -2,6 +2,7 @@
   "search" : "Search",
   "tags.." : "tags..",
   "error_message" : "Something went wrong, please try again.",
-  "retry" : "Retry"
+  "retry" : "Retry",
+  "no_result" : "No Result"
 
 }

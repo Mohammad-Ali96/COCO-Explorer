@@ -14,6 +14,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
+// ignore: depend_on_referenced_packages
 import 'package:logger/logger.dart';
 
 class BaseRepositoryImpl implements BaseRepository {

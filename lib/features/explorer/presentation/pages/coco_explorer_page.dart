@@ -135,9 +135,7 @@ class _CoCoExplorerPageState extends State<CoCoExplorerPage>
                             return Center(
                               child: ErrorView(
                                 failure: state.failure,
-                                onRetry: () {
-                                  // TODO
-                                },
+                                onRetry: getImagesFirstPage,
                               ),
                             );
                           } else {
@@ -182,10 +180,12 @@ class _CoCoExplorerPageState extends State<CoCoExplorerPage>
                                           imagesDetailsListBloc.images.length,
                                       itemBuilder: (context, index) {
                                         return ImageCocoCard(
-                                          coCoImage: imagesDetailsListBloc.images[index],
+                                          coCoImage: imagesDetailsListBloc
+                                              .images[index],
                                         );
                                       },
-                                      separatorBuilder: (_, __) => const SizedBox(height: 8),
+                                      separatorBuilder: (_, __) =>
+                                          const SizedBox(height: 8),
                                     ),
                                   );
                           }
