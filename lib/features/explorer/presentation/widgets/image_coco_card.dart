@@ -38,11 +38,6 @@ class ImageCocoCard extends StatelessWidget with ImageSizeMixin {
                               child: Image(image: snapshot.data!.image)),
                         ),
                 ),
-//                if (snapshot.data == null || !snapshot.hasData)
-//                  SizedBox(
-//                      width: MediaQuery.of(context).size.width,
-//                      height: 240,
-//                      child: const CustomSpinKitPulse()),
                 if (snapshot.hasError)
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
