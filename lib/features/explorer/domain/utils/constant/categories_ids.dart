@@ -21,7 +21,7 @@ var categoriesToId = {
   'cow': 21,
   'elephant': 22,
   'bear': 23,
-  'zebra': 24
+  'zebra': 24,
   'giraffe': 25,
   'backpack': 27,
   'umbrella': 28,
