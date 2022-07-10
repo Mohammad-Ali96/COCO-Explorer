@@ -10,7 +10,7 @@ class SizedImage {
   SizedImage({required this.size, required this.image});
 }
 
-mixin ImagePropertiesMixin {
+mixin ImageSizeMixin {
   Future<SizedImage> getImageSize(String imageUrl) {
     Completer<SizedImage> completer = Completer();
     final networkImage = CachedNetworkImageProvider(imageUrl);

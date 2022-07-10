@@ -95,7 +95,7 @@ class ExplorerRepositoryImpl extends BaseRepositoryImpl
             .map((e) => e.toDomain())
             .toList();
 
-        images.elementAt(i).segmentation = segmentationsForOneImage;
+        images.elementAt(i).segmentations = segmentationsForOneImage;
       }
 
       return right(images);

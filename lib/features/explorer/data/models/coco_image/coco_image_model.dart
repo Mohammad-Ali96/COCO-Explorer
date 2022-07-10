@@ -22,6 +22,6 @@ extension MapCoCoImageModelToDomain on CoCoImageModel {
   CoCoImage toDomain() => CoCoImage(
         id: id,
         imageUrl: imageUrl,
-        segmentation: [],
+        segmentations: [],
       );
 }
