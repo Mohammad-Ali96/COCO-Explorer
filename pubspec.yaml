@@ -1,0 +1,67 @@
+name: coco_explorer
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  auto_route: ^3.2.1
+  cached_network_image: ^3.2.0
+  dartz: ^0.10.1
+  dots_indicator: ^2.0.0
+  easy_localization: ^3.0.0
+  flutter_bloc: ^8.0.1
+  provider: ^6.0.3
+  get_it: ^7.2.0
+  flutter_gen: ^4.1.5
+  flutter_screenutil: ^5.1.0
+  flutter_spinkit: ^5.1.0
+  flutter_svg: ^1.0.1
+  injectable: ^1.5.3
+  internet_connection_checker: ^0.0.1+3
+  intl: ^0.17.0
+  json_annotation: ^4.6.0
+  jwt_decoder: ^2.0.1
+  pull_to_refresh: ^2.0.0
+  retrofit: ^3.0.1
+  dio: ^4.0.6
+  shared_preferences: ^2.0.12
+  shimmer: ^2.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  auto_route_generator: ^3.2.1
+  build_runner: ^2.1.7
+  flutter_gen_runner: ^4.1.5
+  injectable_generator: ^1.5.3
+  json_serializable: ^6.1.4
+  retrofit_generator: ^4.0.0
+  logger: ^1.1.0
+  rename: ^2.0.1
+  flutter_launcher_icons: ^0.9.3
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/translations/
+    - assets/icons/
+    - assets/images/
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_logo.png"
