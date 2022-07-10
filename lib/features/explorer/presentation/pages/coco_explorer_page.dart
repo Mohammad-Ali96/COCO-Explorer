@@ -54,9 +54,10 @@ class _CoCoExplorerPageState extends State<CoCoExplorerPage>
         body: Column(
           children: [
             Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Column(
                 children: [
+                  SizedBox(height: MediaQuery.of(context).padding.top + 8),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(

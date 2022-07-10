@@ -19,5 +19,9 @@ class CoCoImageModel {
 }
 
 extension MapCoCoImageModelToDomain on CoCoImageModel {
-  CoCoImage toDomain() => CoCoImage(id: id, imageUrl: imageUrl);
+  CoCoImage toDomain() => CoCoImage(
+        id: id,
+        imageUrl: imageUrl,
+        segmentation: [],
+      );
 }

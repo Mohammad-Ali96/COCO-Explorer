@@ -12,6 +12,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/app_logo.png
+  AssetGenImage get appLogo =>
+      const AssetGenImage('assets/images/app_logo.png');
+
   /// File path: assets/images/coco_logo.png
   AssetGenImage get cocoLogo =>
       const AssetGenImage('assets/images/coco_logo.png');

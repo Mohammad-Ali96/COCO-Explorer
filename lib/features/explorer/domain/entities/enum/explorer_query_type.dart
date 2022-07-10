@@ -1,4 +1,0 @@
-enum ExplorerQueryType {
-  getImages,
-  getImagesByCats,
-}
