@@ -5,7 +5,7 @@ export 'app_router.gr.dart';
 
 @MaterialAutoRouter(
   routes: [
-    AutoRoute(page: CoCoExplorerPage),
+    AutoRoute(page: CoCoExplorerPage, initial: true),
   ],
 )
 class $AppRouter {}

@@ -77,6 +77,4 @@ abstract class InjectableModule {
   @lazySingleton
   Logger get logger => Logger();
 
-  @lazySingleton
-  Configuration get configuration => getIt<Configuration>();
 }

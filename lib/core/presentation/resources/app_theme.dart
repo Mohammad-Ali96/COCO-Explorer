@@ -42,27 +42,7 @@ class AppTheme {
             displayColor: appColorScheme.primaryFontColor,
             bodyColor: appColorScheme.secondaryFontColor,
           ),
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: TextStyle(color: appColorScheme.placeholderColor),
-        hintStyle: TextStyle(color: appColorScheme.placeholderColor),
-        fillColor: appColorScheme.cardBackgroundColor,
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: appColorScheme.accentColor,
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(13))),
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: appColorScheme.inputBorderColor,
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(13))),
-        border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: appColorScheme.inputBorderColor,
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(13))),
-        contentPadding: const EdgeInsets.all(14),
-      ),
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           padding: MaterialStateProperty.all(const EdgeInsets.all(16)),

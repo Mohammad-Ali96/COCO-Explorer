@@ -4,10 +4,10 @@ import 'package:coco_explorer/core/data/repositories/base_repository_impl.dart';
 import 'package:coco_explorer/core/data/utils/configuration.dart';
 import 'package:coco_explorer/core/domain/entities/failures.dart';
 import 'package:coco_explorer/core/domain/utils/network/network_info.dart';
-import 'package:coco_explorer/features/explorer/data/datasources/remote/Explorer_remote_datasource.dart';
+import 'package:coco_explorer/features/explorer/data/datasources/remote/explorer_remote_datasource.dart';
 import 'package:coco_explorer/features/explorer/domain/entities/coco_image.dart';
 import 'package:coco_explorer/features/explorer/domain/entities/enum/explorer_query_type.dart';
-import 'package:coco_explorer/features/explorer/domain/repositories/Explorer_repository.dart';
+import 'package:coco_explorer/features/explorer/domain/repositories/explorer_repository.dart';
 import 'package:coco_explorer/features/explorer/data/models/coco_image/coco_image_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -38,6 +38,7 @@ class ExplorerRepositoryImpl extends BaseRepositoryImpl
       );
       imagesIds.clear();
       imagesIds.addAll(ids);
+      print("imagesIds length ${imagesIds.length}");
       return right(imagesIds);
     });
   }

@@ -1,8 +1,9 @@
 import 'package:coco_explorer/core/data/utils/configuration.dart';
 import 'package:coco_explorer/features/explorer/data/models/coco_image/coco_image_model.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:dio/dio.dart';
+
 
 part 'explorer_remote_datasource.g.dart';
 

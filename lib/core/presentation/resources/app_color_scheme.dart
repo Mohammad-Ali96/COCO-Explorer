@@ -93,7 +93,7 @@ class AppLightColorScheme extends AppColorScheme {
   Color get placeholderColor => const Color(0xffBBBBBB);
 
   @override
-  Color get primaryColor => const Color(0xFFFFFFFF);
+  Color get primaryColor => const Color(0xFF1E8D77);
 
   @override
   Color get primaryFontColor => const Color(0xff20313B);

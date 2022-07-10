@@ -29,17 +29,14 @@ class AppRouter extends _i2.RootStackRouter {
   };
 
   @override
-  List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(CoCoExplorerPageRoute.name,
-            path: '/co-co-explorer-page')
-      ];
+  List<_i2.RouteConfig> get routes =>
+      [_i2.RouteConfig(CoCoExplorerPageRoute.name, path: '/')];
 }
 
 /// generated route for
 /// [_i1.CoCoExplorerPage]
 class CoCoExplorerPageRoute extends _i2.PageRouteInfo<void> {
-  const CoCoExplorerPageRoute()
-      : super(CoCoExplorerPageRoute.name, path: '/co-co-explorer-page');
+  const CoCoExplorerPageRoute() : super(CoCoExplorerPageRoute.name, path: '/');
 
   static const String name = 'CoCoExplorerPageRoute';
 }
