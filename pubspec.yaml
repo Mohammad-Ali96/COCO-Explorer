@@ -48,6 +48,8 @@ dev_dependencies:
   json_serializable: ^6.1.4
   retrofit_generator: ^4.0.0
   logger: ^1.1.0
+  rename: ^2.0.1
+  flutter_launcher_icons: ^0.9.3
 
 flutter:
 
@@ -57,3 +59,9 @@ flutter:
     - assets/translations/
     - assets/icons/
     - assets/images/
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_logo.png"
